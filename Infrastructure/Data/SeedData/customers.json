@@ -1,0 +1,47 @@
+[
+  {
+    "Id": 1,
+    "Name": "Customer 01 Name",
+    "Phone": "Customer 01 Phone",
+    "Address": "Customer 01 Address",
+    "TaxNumber": "Customer 01 TaxNumber",
+    "LogoUrl": "Customer 01 LogoUrl",
+    "Description":"Customer 01 Description"
+  },
+  {
+    "Id": 2,
+    "Name": "Customer 02 Name",
+    "Phone": "Customer 02 Phone",
+    "Address": "Customer 02 Address",
+    "TaxNumber": "Customer 02 TaxNumber",
+    "LogoUrl": "Customer 02 LogoUrl",
+    "Description":"Customer 02 Description"
+  },
+  {
+    "Id": 3,
+    "Name": "Customer 03 Name",
+    "Phone": "Customer 03 Phone",
+    "Address": "Customer 03 Address",
+    "TaxNumber": "Customer 03 TaxNumber",
+    "LogoUrl": "Customer 03 LogoUrl",
+    "Description":"Customer 03 Description"
+  },
+  {
+    "Id": 4,
+    "Name": "Customer 04 Name",
+    "Phone": "Customer 04 Phone",
+    "Address": "Customer 04 Address",
+    "TaxNumber": "Customer 04 TaxNumber",
+    "LogoUrl": "Customer 04 LogoUrl",
+    "Description":"Customer 04 Description"
+  },
+  {
+    "Id": 5,
+    "Name": "Customer 05 Name",
+    "Phone": "Customer 05 Phone",
+    "Address": "Customer 05 Address",
+    "TaxNumber": "Customer 05 TaxNumber",
+    "LogoUrl": "Customer 05 LogoUrl",
+    "Description":"Customer 05 Description"
+  }
+]

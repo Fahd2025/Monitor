@@ -1,0 +1,46 @@
+using System.Linq;
+using API.Errors;
+using Core.Interfaces;
+using Infrastructure.Data;
+using Infrastructure.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace API.Extensions
+{
+    public static class ApplicationServicesExtension
+    {
+        public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+        {
+            services.AddSingleton<IResponseCacheService,ResponseCacheService>();
+            services.AddScoped<ITokenService,TokenService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IPaymentService,PaymentService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IBasketRepository,BasketRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<ICustomerAppService, CustomerAppService>();
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.InvalidModelStateResponseFactory = actionContext =>
+                {
+
+                    var errors = actionContext.ModelState.Values
+                                    .Where(e => e.Errors.Count > 0)
+                                    .SelectMany(e => e.Errors)
+                                    .Select(e => e.ErrorMessage).ToArray();
+
+                    var errorResponse = new ApiValidationErrorResponse()
+                    {
+                        Errors = errors
+                    };
+
+                    return new BadRequestObjectResult(errorResponse);
+                };
+            });
+
+            return services;
+        }
+    }
+}
